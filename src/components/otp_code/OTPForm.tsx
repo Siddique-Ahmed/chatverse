@@ -1,10 +1,12 @@
 import React, { useState, useRef, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 
 const OTPForm: React.FC = () => {
   const [otp, setOtp] = useState<string[]>(["", "", "", ""]);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>("");
   const inputRefs = useRef<(HTMLInputElement | null)[]>([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     // Focus on first input when component mounts
@@ -79,6 +81,7 @@ const OTPForm: React.FC = () => {
     }
 
     setIsLoading(true);
+    navigate("/chatverse/chats");
 
     try {
       // Simulate API call
