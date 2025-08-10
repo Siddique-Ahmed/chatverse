@@ -95,7 +95,7 @@ const RecieveEmail = () => {
           {/* Submit Button */}
           <button
             type="button"
-            onClick={(e) => {
+            onClick={() => {
               const fakeEvent = {
                 preventDefault: () => {},
               } as React.FormEvent<HTMLFormElement>;
