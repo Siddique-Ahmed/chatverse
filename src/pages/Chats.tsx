@@ -133,7 +133,7 @@ const Chats: React.FC<ChatsProps> = ({
 
       {/* Chat List */}
       <div className='bg-white rounded-lg shadow-sm overflow-hidden'>
-        <div className='max-h-[calc(100vh-70px)] overflow-y-auto'>
+        <div className='max-h-[calc(100vh-70px)] overflow-y-auto pb-24 md:pb-4 hide-scrollbar'>
           {filteredUsers.length > 0 ? (
             filteredUsers.map((user: User) => (
               <Link 

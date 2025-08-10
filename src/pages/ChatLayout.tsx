@@ -1,29 +1,35 @@
+import { Outlet, useLocation } from "react-router-dom"; // Your chat list component
 import Chats from "./Chats";
-import { Outlet, useLocation } from "react-router-dom";
 
 const ChatLayout = () => {
   const location = useLocation();
 
-  const isDetailPage = location.pathname.includes("/chatverse/chats/");
+  // Check if we're on a specific chat detail page
+  const isOnChatDetail =
+    location.pathname.includes("/chat/") ||
+    location.pathname.includes("/profile/");
 
   return (
     <div className="flex h-screen">
-      {/* Show chats only if no chat selected OR screen is large */}
+      {/* Chat Sidebar - show on desktop or mobile when not on chat detail */}
       <div
-        className={`w-full lg:w-80 border-r border-gray-200 overflow-y-auto ${
-          isDetailPage ? "hidden lg:block" : "block"
-        }`}
+        className={`${
+          isOnChatDetail ? "hidden md:block" : "block"
+        } w-full md:w-1/3 border-r border-gray-200`}
       >
         <Chats />
       </div>
 
-      {/* Show Outlet (Chat Detail) only if chatId exists or screen is large */}
+      {/* Chat Detail Area */}
       <div
-        className={`flex-1 h-screen items-center justify-center overflow-y-auto ${
-          isDetailPage ? "block" : "hidden lg:block"
-        }`}
+        className={`${
+          isOnChatDetail ? "block" : "hidden md:block"
+        } w-full md:w-2/3`}
       >
-        <Outlet />
+        {/* Add bottom padding on mobile to avoid bottom navigation overlap */}
+        <div className={`h-full ${!isOnChatDetail ? "pb-16 md:pb-0" : ""}`}>
+          <Outlet />
+        </div>
       </div>
     </div>
   );

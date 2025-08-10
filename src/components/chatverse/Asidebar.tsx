@@ -92,7 +92,7 @@ const Asidebar: React.FC<SidebarProps> = () => {
 
   return (
     <div
-      className={`${
+      className={`hidden md:block ${
         activeSidebar ? "w-44 lg:w-56 absolute top-0 left-0 lg:relative" : "w-12"
       } h-screen bg-white z-50 text-black flex flex-col`}
     >
