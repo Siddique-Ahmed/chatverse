@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { FiEye, FiEyeOff, FiLock, FiMail, FiPhone } from "react-icons/fi";
+import { FiEye, FiEyeOff, FiLock, } from "react-icons/fi";
 import { Link } from "react-router-dom";
 
 const ResetEmail = () => {
@@ -99,7 +99,7 @@ const ResetEmail = () => {
           {/* Submit Button */}
           <button
             type="button"
-            onClick={(e) => {
+            onClick={() => {
               const fakeEvent = {
                 preventDefault: () => {},
               } as React.FormEvent<HTMLFormElement>;

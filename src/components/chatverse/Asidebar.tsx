@@ -1,5 +1,5 @@
-import React, { useState, type JSX } from "react";
-import { BiLogOut, BiMenu } from "react-icons/bi";
+import React, { useState } from "react";
+import {  BiMenu } from "react-icons/bi";
 import {
   BsChatDots,
   BsTelephone,
